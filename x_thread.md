@@ -1,4 +1,4 @@
-# Draft X thread (DO NOT POST until approved; replace https://github.com/data1493/quasi-rh-audit)
+# Draft X thread (not posted)
 
 1/
 We ran an external, multi-agent audit of OpenAI's quasi-Riemann hypothesis manuscript (zero-free half-plane Re(s) > 7/8). It is an audit of the existing paper, not a re-proof. Loss table, residual-risk notes and review request: https://github.com/data1493/quasi-rh-audit
