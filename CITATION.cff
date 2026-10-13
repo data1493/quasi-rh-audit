@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you cite this audit, please cite OpenAI's preprint and Lean formalization (github.com/openai/math) as the primary objects."
+title: "External Audit of OpenAI's Quasi-Riemann Hypothesis Manuscript (Re(s) > 7/8)"
+abstract: "External, AI-assisted audit of OpenAI's preprint 'The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re(s) > 7/8' (September 30, 2026) and its Lean formalization. Not an independent re-proof of the analytic estimates."
+type: dataset
+authors:
+  - alias: data1493
+date-released: 2026-10-13
+url: "https://github.com/data1493/quasi-rh-audit"
+repository-code: "https://github.com/data1493/quasi-rh-audit"
+license: CC-BY-4.0
+keywords: [riemann-hypothesis, number-theory, lean4, audit, analytic-number-theory]
+references:
+  - type: article
+    title: "The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re(s) > 7/8"
+    authors:
+      - name: OpenAI
+    year: 2026
+    url: "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026"

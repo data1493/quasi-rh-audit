@@ -1,3 +1,5 @@
+> **Unreviewed working draft, kept for transparency.** Some wording in this file overstates what was verified (for example "independently machine-checked" or "the bound holds"). The citable record is the corresponding file in [`audit/`](../audit/); every wording change is listed in [`audit/CHANGELOG_wording.md`](../audit/CHANGELOG_wording.md).
+
 # Expert Review Request — Quantitative Hinge of the OpenAI Quasi-Riemann Manuscript
 
 **Purpose:** External specialist verification of the modest positive power margins that form the residual risk in the claimed zero-free half-plane \(\operatorname{Re}(s)>7/8\).

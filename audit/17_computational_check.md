@@ -25,7 +25,7 @@ $$
 -E_*\ge\frac{49}{440640}\approx0.0001112>0.0001=\frac{1}{10000}.
 $$
 
-The inequality holds. The constant term alone already exceeds $1/10000$, so after the paper’s arbitrarily small $\epsilon_{\rm total}$ the remainder stays positive.
+The inequality $49/440640>1/10000$ holds arithmetically (this checks the comparison, not the algebraic identity that produces $49/440640$). The constant term alone already exceeds $1/10000$, so after the paper’s arbitrarily small $\epsilon_{\rm total}$ the remainder stays positive.
 
 ## Stage 1 budget arithmetic
 
@@ -39,7 +39,7 @@ The arithmetic is consistent with the extracted ledger.
 
 ## Conclusion
 
-Independent numerical checks of the two critical constants (the row envelope $R(\delta)$ and the Stage 2 endpoint lower bound $49/440640$) confirm the values that feed the positive margins. No discrepancy with the paper’s claimed numbers is found. The two critical constants match the paper under direct evaluation.
+Direct numerical evaluation of the two critical constants (the row envelope $R(\delta)$ and the Stage 2 endpoint lower bound $49/440640$) confirm the values that feed the positive margins. No discrepancy with the paper’s claimed numbers is found. The two critical constants match the paper under direct evaluation.
 
 ---
 

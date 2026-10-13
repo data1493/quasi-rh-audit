@@ -1,3 +1,5 @@
+> **Unreviewed working draft, kept for transparency.** Some wording in this file overstates what was verified (for example "independently machine-checked" or "the bound holds"). The citable record is the corresponding file in [`audit/`](../audit/); every wording change is listed in [`audit/CHANGELOG_wording.md`](../audit/CHANGELOG_wording.md).
+
 # Highest-ROI Extraction — Specialized Sextic Large Sieve
 
 **Status:** The lemma is a precise adaptation of the Blomer–Goldmakher–Louvel norm recursion. The \((KD)^{2/3}\) term is correctly derived under the stated conventions. No arithmetic defect is visible in the extracted argument.

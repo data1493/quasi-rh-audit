@@ -1,3 +1,5 @@
+> **Unreviewed working draft, kept for transparency.** Some wording in this file overstates what was verified (for example "independently machine-checked" or "the bound holds"). The citable record is the corresponding file in [`audit/`](../audit/); every wording change is listed in [`audit/CHANGELOG_wording.md`](../audit/CHANGELOG_wording.md).
+
 # Stage 2 Compensation Local Identities
 
 **Status:** The two-term cancellation is an exact local identity under the stated conventions. No residual main term that depends on the target conductor is introduced.

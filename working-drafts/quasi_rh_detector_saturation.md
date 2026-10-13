@@ -1,3 +1,5 @@
+> **Unreviewed working draft, kept for transparency.** Some wording in this file overstates what was verified (for example "independently machine-checked" or "the bound holds"). The citable record is the corresponding file in [`audit/`](../audit/); every wording change is listed in [`audit/CHANGELOG_wording.md`](../audit/CHANGELOG_wording.md).
+
 # Zero-Detector Saturation
 
 **Status:** The product-versus-individual comparison forces the plain-polynomial length into the regime \(m\le1/2+O(\epsilon)\). The length relation is elementary and feeds the envelope optimization correctly.

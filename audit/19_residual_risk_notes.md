@@ -4,7 +4,7 @@
 
 ## Where the risk sits
 
-The margins are small: a Stage 1 high-side saving of $1/4800$ and a Stage 2 endpoint constant $49/440640\approx0.0001112>1/10000$. The audit confirms that these survive every loss the paper **explicitly** charges and that the computational constants match ([00](00_master_audit.md), [11](11_loss_table.md), [17](17_computational_check.md)). The residual risk is the existence of an **unlisted** intermediate loss larger than the reserved budget. Confirming that none exists requires a specialist reading of every lemma that feeds the ledger, or formalization of those steps.
+The margins are small: a Stage 1 high-side saving of $1/4800$ and a Stage 2 endpoint constant $49/440640\approx0.0001112>1/10000$. Within the extracted text, these survive every loss the paper **explicitly** charges and that the computational constants match ([00](00_master_audit.md), [11](11_loss_table.md), [17](17_computational_check.md)). The residual risk is the existence of an **unlisted** intermediate loss larger than the reserved budget. Confirming that none exists requires a specialist reading of every lemma that feeds the ledger, or formalization of those steps.
 
 ## Item-by-item
 

@@ -1,0 +1,35 @@
+name: Specialist review finding
+description: Report a lemma whose loss may exceed its reserved budget, or confirm that a listed item is fully accounted for.
+title: "[Finding] "
+labels: ["specialist-review"]
+body:
+  - type: input
+    id: lemma
+    attributes:
+      label: Lemma / location
+      description: Lemma, proposition or equation label in the OpenAI paper.tex (commit adc7f12), with page or line if possible.
+    validations: {required: true}
+  - type: textarea
+    id: loss
+    attributes:
+      label: Claimed loss
+      description: The loss you believe is incurred (exponent, factor or term), and whether the paper lists it.
+    validations: {required: true}
+  - type: textarea
+    id: budget
+    attributes:
+      label: Budget it is charged against
+      description: e.g. m_0/4 = 1/4800 (Stage 1), the 49/440640 endpoint constant, or epsilon_total (Stage 2). Link the row in audit/11_loss_table.md.
+    validations: {required: true}
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Derivation, counter-calculation or reference. LaTeX is fine.
+    validations: {required: true}
+  - type: dropdown
+    id: verdict
+    attributes:
+      label: Your assessment
+      options: ["Loss exceeds budget (defect)", "Loss unlisted but within budget", "Item fully accounted for (confirmation)", "Unsure / needs discussion"]
+    validations: {required: true}

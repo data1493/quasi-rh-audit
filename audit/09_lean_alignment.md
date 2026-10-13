@@ -11,7 +11,9 @@ The Lean formalization (family 003) covers:
 - Finite-order Hecke $L$-functions over $\mathbb{Q}(\sqrt{-3})$: the same half-plane.
 - A uniform logarithmic exclusion for Landau–Siegel zeros: $1-\beta \ge c/\log q$ for some $c>0$ (no explicit value of $c$ is given).
 
-Comparator challenges exist for each of these statements. An independent re-check (davegoldblatt) confirmed that the zeta statement is accepted by both Lean’s default kernel and an independent nanoda kernel, using only the standard axioms `propext`, `Classical.choice`, and `Quot.sound`.
+Comparator challenges exist for each of these statements. A third-party re-check (davegoldblatt) reports that the zeta statement is accepted by both Lean’s default kernel and an independent nanoda kernel, using only the standard axioms `propext`, `Classical.choice`, and `Quot.sound`.
+
+*Audit note:* we did not build or replay any of the Lean ourselves. The third-party replay we cite covers the zeta statement; one write-up reports that the Hecke module was not built. The Dirichlet and Hecke statements are therefore described here from OpenAI's scope note ([lean/docs/003.md](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/003.md)), not from a replay we can vouch for.
 
 ## 9.2 What is not formalized
 
@@ -25,7 +27,7 @@ The formal statements match the main theorem of the manuscript: zero-free half-p
 
 ## 9.4 Translation fidelity
 
-Lean checks that the formal theorem is proved from the axioms and the definitions used in the formalization. It does not by itself certify that every analytic estimate in the prose paper has been correctly translated into the formal code. That translation step remains a human-expert task. Given that the independent kernel checks pass and the high-level structure aligns, the residual risk is the usual one for a large formalization: a subtle discrepancy between an informal estimate and its formal counterpart.
+Lean checks that the formal theorem is proved from the axioms and the definitions used in the formalization. It does not by itself certify that every analytic estimate in the prose paper has been correctly translated into the formal code. That translation step remains a human-expert task. Given the reported third-party kernel checks and the high-level structure aligns, the residual risk is the usual one for a large formalization: a subtle discrepancy between an informal estimate and its formal counterpart.
 
 ## 9.5 Condensed finding
 

@@ -30,10 +30,10 @@
 
 **Accounting**
 
-- After all listed losses and division by the fixed scalar $c_S$, at least $3m_0/4 = 1/1600$ remains before the height factor.
-- Using $m=1/2400$ leaves an unused $1/4800$.
-- Late-height closure absorbs the height factor into half the remainder.
-- Final claimed high-side saving: $1/4800$.
+- The listed charges are tiny in absolute terms (central $46\epsilon_*$, principal $\le 2.5\epsilon_*$ and $2\epsilon_*$, small-row $\le 2\epsilon_*$; about $5.3\times10^{-5}$ in total, against $m_0/4\approx2.08\times10^{-4}$). After all listed losses and division by the fixed scalar $c_S$, the paper retains at least $3m_0/4 = 1/1600$ before the height factor.
+- Using only $m=1/2400$ leaves an unused power $1/4800$ ($=1/1600-1/2400$), which absorbs fixed constants from internal tail choices.
+- Late-height closure absorbs the height factor and returns half of $m$.
+- Final claimed high-side saving: $m/2 = 1/4800$ (paper, end of proof of the balanced-high estimate). The two appearances of $1/4800$ are different quantities that happen to be equal.
 
 **Status:** Every listed loss is strictly smaller than its reserved fraction under the paper’s accounting. The table closes with a positive remainder.
 

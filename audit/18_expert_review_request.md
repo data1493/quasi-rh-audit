@@ -4,7 +4,7 @@
 
 ## Background (one paragraph)
 
-An independent multi-agent audit of the public manuscript reconstructed the dual-representation strategy (cubic-theta reflection + Poisson isolation of the principal $1/L$ signal + specialized sextic large sieve + zero detector). The paper’s own exponent ledgers leave a positive remainder under every loss they explicitly charge (Stage 1 high-side saving $1/4800$; Stage 2 endpoint certificate $49/440640>1/10000$). Computational checks confirm the row envelope $R(\delta)$ and the endpoint constant. The Lean formalization of the final theorems is machine-checked, with an independent third-party kernel replay reported. No structural gap was found. The residual risk is the possibility of an unlisted intermediate loss larger than the reserved budgets.
+An external, AI-assisted multi-agent audit of the public manuscript reconstructed the dual-representation strategy (cubic-theta reflection + Poisson isolation of the principal $1/L$ signal + specialized sextic large sieve + zero detector). The paper’s own exponent ledgers leave a positive remainder under every loss they explicitly charge (Stage 1 high-side saving $1/4800$; Stage 2 endpoint certificate $49/440640>1/10000$). Computational checks confirm the row envelope $R(\delta)$ and the endpoint constant. The Lean formalization of the final theorems is machine-checked, with an independent third-party kernel replay reported. No structural gap was found. The residual risk is the possibility of an unlisted intermediate loss larger than the reserved budgets.
 
 ## Highest-priority items for expert review
 
@@ -49,7 +49,7 @@ A short note stating whether the listed losses are fully accounted for under the
 
 ---
 
-*Prepared from an independent multi-agent audit. All claims are limited to the extracted accounting and the public source.*
+*Prepared from an external, AI-assisted multi-agent audit led by data1493. All claims are limited to the extracted accounting and the public source.*
 
 ---
 

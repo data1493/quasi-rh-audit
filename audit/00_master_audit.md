@@ -1,7 +1,7 @@
-# Independent Multi-Agent Audit of the OpenAI Quasi-Riemann Hypothesis Manuscript
+# External Multi-Agent Audit of the OpenAI Quasi-Riemann Hypothesis Manuscript
 
 **Date:** 2026-10-13  
-**Method:** Layer-by-layer reconstruction and stress-test using SuperGrok Heavy multi-agent analysis of the public TeX source and Lean formalization.
+**Method:** Layer-by-layer reconstruction and stress-test using an AI-assisted multi-agent workflow (SuperGrok Heavy), led by data1493, reading the public TeX source and Lean formalization (openai/math commit `adc7f12`). No human specialist has yet reviewed these findings.
 
 ## Claims (precise scope)
 
@@ -16,7 +16,7 @@
 
 | Part | Layer | Finding |
 |------|-------|---------|
-| 1 | Continuation criterion | Dual representations produce contradiction if zero lies too far right. Structural soundness confirmed. |
+| 1 | Continuation criterion | Dual representations produce contradiction if zero lies too far right. No structural gap found at this layer. |
 | 2 | Cubic-theta reflection | Exact under stated conditions; retains zero-on-nonunit restrictions. |
 | 3 | Poisson & principal signal | Principal $1/L$ Mellin signal cleanly isolated. |
 | 4 | Large sieve & row energy | Specialized sextic sieve + envelope $R(\delta)$ supply the positive margins. |
@@ -44,16 +44,16 @@
 
 **Computational confirmation**
 
-- Row envelope $R(\delta)=\min\{1,\max(1-\delta/2,4/3-\delta)\}$ verified; strict saving for $\delta>1/3$.
-- Endpoint constant $49/440640\approx0.0001112>1/10000$ confirmed.
+- Row envelope $R(\delta)=\min\{1,\max(1-\delta/2,4/3-\delta)\}$ evaluated; strict saving for $\delta>1/3$.
+- Endpoint constant $49/440640\approx0.0001112>1/10000$ checked arithmetically (the algebraic identity behind it was not re-derived).
 
-## Lean skeleton of the hinge
+## Logical hinge (prose outline)
 
-The continuation criterion has been isolated as a pure logical implication: dual bounds with uniform positive powers imply holomorphic continuation of $1/L$ past the supposed rightmost zero. The concrete margins appear as explicit constants. The analytic estimates that discharge the implication remain in the prose.
+*No Lean skeleton was built for this audit; this is a prose outline of how the formal statements line up with the hinge.* The continuation criterion has been isolated as a pure logical implication: dual bounds with uniform positive powers imply holomorphic continuation of $1/L$ past the supposed rightmost zero. The concrete margins appear as explicit constants. The analytic estimates that discharge the implication remain in the prose.
 
 ## Residual risk
 
-The margins are small. The audit confirms they survive every loss the paper explicitly charges and that the computational constants match. The residual risk is the existence of an unlisted intermediate loss larger than the reserved budget. Full certification requires specialist verification of every lemma that feeds the ledger, or formalization of those steps.
+The margins are small. Within the extracted text, they survive every loss the paper explicitly charges and that the computational constants match. The residual risk is the existence of an unlisted intermediate loss larger than the reserved budget. Full certification requires specialist verification of every lemma that feeds the ledger, or formalization of those steps.
 
 ## Conclusion
 

@@ -1,3 +1,5 @@
+> **Unreviewed working draft, kept for transparency.** Some wording in this file overstates what was verified (for example "independently machine-checked" or "the bound holds"). The citable record is the corresponding file in [`audit/`](../audit/); every wording change is listed in [`audit/CHANGELOG_wording.md`](../audit/CHANGELOG_wording.md).
+
 # Stage 1 Central Loss Accounting — \(46\epsilon_*\)
 
 **Status:** The explicit count is \(13\epsilon_*+2(15\epsilon_*)+3\epsilon_*=46\epsilon_*\). With \(\epsilon_*=10^{-6}\) this is strictly less than \(m_0/4=1/4800\). Every listed component is charged.

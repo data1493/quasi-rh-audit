@@ -1,30 +1,66 @@
 # External Audit of OpenAI's Quasi-Riemann Hypothesis Manuscript (Re(s) > 7/8)
 
-> **This is an external audit of the existing manuscript, not an independent re-proof of the analytic estimates.**
+**What this is:** an external, AI-assisted audit of OpenAI's preprint *The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re(s) > 7/8* (September 30, 2026) and its Lean formalization in [openai/math](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a).
 
-## Status
+> **This is an external audit of the existing manuscript, not an independent re-proof of the analytic estimates.** We did not prove anything, did not verify every estimate, and did not build the Lean ourselves.
 
-The structure holds: the dual-representation argument is coherent at every examined layer (continuation criterion, cubic-theta reflection, Poisson isolation, sextic large sieve, zero detector, Stage 1 and Stage 2 assembly, uniformity and Hecke-to-Dirichlet transfer). The paper's own exponent ledgers close with a positive remainder under the stated accounting: a Stage 1 high-side saving of $1/4800$ and a Stage 2 endpoint constant $49/440640 > 1/10000$. The Lean formalization of the final theorems is machine-checked, and a third-party kernel replay is reported. The residual risk is unlisted intermediate losses: the margins are small, and confirming that no intermediate lemma hides an unlisted loss larger than the reserved budgets requires a specialist reading of the original manuscript.
+**Verdict (scope-limited):** the dual-representation structure is coherent at every layer we examined, and the paper's own exponent ledgers close with a positive remainder under the losses the paper explicitly charges: a Stage 1 high-side saving of $1/4800$ and a Stage 2 endpoint constant $49/440640 \approx 0.0001112 > 1/10000$. The Lean statements of the final theorems match the paper; OpenAI reports them machine-checked, and a third-party kernel replay (davegoldblatt) is reported for the zeta statement.
 
-**What this work is:** a layer-by-layer reconstruction, a specialist audit of the paper's own exponent accounting, computational confirmation of the critical constants, and an outline of how the Lean statements line up with the logical hinge (described in [the master audit](audit/00_master_audit.md#lean-skeleton-of-the-hinge)). **What it is not:** a proof, or an independent verification of every estimate.
+**Residual risk:** the margins are small. An intermediate lemma could carry an unlisted loss larger than the reserved budgets. Ruling that out needs a specialist reading of the original manuscript.
 
-## Primary objects (cite these first)
-
-- OpenAI, *The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re(s) > 7/8*, preprint dated September 30, 2026, in [openai/math](https://github.com/openai/math):
-  - TeX source: [paper.tex](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex)
-  - PDF: [paper.pdf](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf)
-- Lean formalization (result family 003):
-  - Scope note: [lean/docs/003.md](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/003.md)
-  - Proof module: [OAI/NumberTheory/DirichletL/Nonvanishing.lean](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/OAI/NumberTheory/DirichletL/Nonvanishing.lean)
-  - Comparator statements: [QuasiRiemannHypothesis.lean](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/ComparatorChallenges/QuasiRiemannHypothesis.lean), [DirichletSevenEighths.lean](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/ComparatorChallenges/DirichletSevenEighths.lean), [HeckeSevenEighths.lean](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/ComparatorChallenges/HeckeSevenEighths.lean)
-
-Links are pinned to openai/math commit `1581d4c`.
-
-## Ten-minute path for a number theorist
+**Ten-minute path for a number theorist:**
 
 1. [Loss table](audit/11_loss_table.md): every charged loss against its reserved budget.
 2. [Residual-risk notes](audit/19_residual_risk_notes.md): where an unlisted loss could hide.
-3. [Expert review request](audit/18_expert_review_request.md): five prioritized items and precise questions.
+3. [Expert review request](audit/18_expert_review_request.md): five prioritized items and precise questions. Findings welcome as [issues](https://github.com/data1493/quasi-rh-audit/issues/new/choose).
+
+Audited version: openai/math commit [`adc7f12`](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a) (the audited files are byte-identical at the current `main`, see [Version audited](#version-audited)).
+
+---
+
+## Primary objects (cite these first)
+
+- OpenAI, *The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re(s) > 7/8*, preprint dated September 30, 2026 (199 pages):
+  - TeX source: [paper.tex](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex)
+  - PDF: [paper.pdf](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf)
+- Lean formalization (result family 003):
+  - Scope note: [lean/docs/003.md](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/003.md)
+  - Proof module: [OAI/NumberTheory/DirichletL/Nonvanishing.lean](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/NumberTheory/DirichletL/Nonvanishing.lean)
+  - Comparator statements: [QuasiRiemannHypothesis.lean](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/QuasiRiemannHypothesis.lean), [DirichletSevenEighths.lean](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/DirichletSevenEighths.lean), [HeckeSevenEighths.lean](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/HeckeSevenEighths.lean)
+
+## Version audited
+
+The audit read openai/math at commit [`adc7f12`](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a) (2026-10-06 14:58 PT, the repository's initial public commit). Later commits up to [`1581d4c`](https://github.com/openai/math/commit/1581d4cbdd69a0faf34b2089614fe2a814316a6a) (2026-10-12 14:55 PT) did **not** change any audited file: `paper.tex`, `paper.pdf`, `lean/docs/003.md`, `Nonvanishing.lean` and the three comparator files have identical git blob hashes at `adc7f12`, `3014888` and `1581d4c` (checked 2026-10-13 via the GitHub API). Those later commits added other preprints, other Lean families and repository housekeeping.
+
+## Scope and what's not covered
+
+- **OpenAI's October 5, 2026 preprint** ([The-Quasi-Riemann-Hypothesis-October-5-2026](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026)) is not covered. It is a separate manuscript that claims a weaker zero-free half-plane, Re(s) > 11/12, for Dirichlet and $\mathbb{Q}(\sqrt{-3})$ Hecke L-functions by its own argument. Nothing here should be read as a statement about it.
+- **Lean:** we did not build or replay any Lean. The third-party replay we cite covers the zeta statement; one write-up reports the Hecke module was not built. The Dirichlet and Hecke formal statements are unverified by us.
+- **Analytic estimates:** we checked the paper's own exponent accounting, not every intermediate inequality. The Stage 2 algebraic identity behind $49/440640$ was extracted, not re-derived; only the final comparison was checked numerically.
+- **Not covered at all:** the Landau–Siegel application and the paper's later applications; the companion preprint *Uniform exclusion of Landau–Siegel zeros* (October 1, 2026); explicit constants.
+
+## About this audit / method
+
+This is a multi-agent, AI-assisted reconstruction led by data1493. AI agents (SuperGrok Heavy) read the public TeX source and Lean files, reconstructed the argument layer by layer, extracted the paper's loss ledgers, and evaluated the two critical constants numerically. Where these files say "specialist audit", that describes the depth of the reading of the exponent accounting, not the credentials of a human reviewer: **no professional number theorist has reviewed this work yet.** Every finding is limited to what can be read off the public sources, and every number quoted here was cross-checked against `paper.tex` at `adc7f12` (for example $46\epsilon_* < m_0/4 = 1/4800$, $3m_0/4 = 1/1600$, $m/2 = 1/4800$, $1021/25000$, $-E_* \ge 49/440640$, $-\tfrac{51}{64}\Delta$).
+
+We invite specialist review, especially from people who work on large sieves, zero detection and zero-density estimates. If you find a lemma whose loss exceeds its budget, please open a [Specialist review finding](https://github.com/data1493/quasi-rh-audit/issues/new/choose) issue. A confirmed defect will be recorded at the top of this README.
+
+## Notation
+
+| Symbol | Meaning (as used in the paper) |
+|---|---|
+| $\beta_*$ | real part of the rightmost hypothetical zero (contradiction hypothesis) |
+| $\Delta = \beta_* - 7/8$ | Stage 2 excess over the target abscissa ($\Delta_1$ is the Stage 1 analogue relative to $11/12$) |
+| $\eta$ | target Hecke character |
+| $C_{\mathrm{I}}(s)=s-2/3$, $C_{\mathrm{II}}(s)=s-11/16$ | affine exponents compared in Stage 1 and Stage 2 |
+| $m_0=1/1200$ | minimum error-free saving on every major contribution (Stage 1) |
+| $\epsilon_*=10^{-6}$ | unit loss requested for each listed loss class |
+| $m=1/2400$ | saving actually used after losses; final Stage 1 saving is $m/2=1/4800$ |
+| $\omega,\sigma$ | the low-side and high-side positive powers in the continuation criterion |
+| $\delta$ | row-size exponent; $R(\delta)=\min\{1,\max(1-\delta/2,4/3-\delta)\}$ is the row-count envelope |
+| $E_*$ | Stage 2 high-side exponent at the compensated endpoint; $-E_*\ge 49/440640$ |
+| $T_1$, $A_\eta$, $\tau$ | height, height order and late-chosen height exponent in late-height closure |
+| $\epsilon_{\rm total}$ | aggregate small loss in Stage 2, claimed arbitrarily small with target-independent coefficient |
 
 ## Contents
 
@@ -50,18 +86,15 @@ Links are pinned to openai/math commit `1581d4c`.
 | 17 | [17_computational_check.md](audit/17_computational_check.md) | Computational Check |
 | 18 | [18_expert_review_request.md](audit/18_expert_review_request.md) | Expert Review Request — Quantitative Hinge of the OpenAI Quasi-Riemann Manuscript |
 | 19 | [19_residual_risk_notes.md](audit/19_residual_risk_notes.md) | Residual-Risk Notes |
+| — | [CHANGELOG_wording.md](audit/CHANGELOG_wording.md) | Every wording change from the working drafts |
 | — | [ABSTRACT.md](ABSTRACT.md) | 150–200 word abstract |
-| — | [LICENSE](LICENSE) | CC BY 4.0 |
-
-A compiled PDF of the master audit, loss table and residual-risk notes is attached to the release as `quasi-rh-audit.pdf`.
-
-## Method note
-
-The audit was produced with a multi-agent workflow (SuperGrok Heavy) reading the public TeX source and Lean formalization. Every finding is limited to what was extracted from those public sources. Computational checks cover the row envelope $R(\delta)$ and the Stage 2 endpoint constant only.
+| — | [pdf/quasi-rh-audit.pdf](pdf/quasi-rh-audit.pdf) | Static PDF: master audit, loss table, residual-risk notes |
+| — | [working-drafts/](working-drafts/) | Unreviewed raw drafts, kept for transparency (do not cite) |
+| — | [x_thread.md](x_thread.md) | Draft announcement thread |
 
 ## How to cite
 
-Cite the OpenAI preprint and Lean formalization above as the primary objects. To cite this audit:
+Cite the OpenAI preprint and Lean formalization above as the primary objects. To cite this audit, use [CITATION.cff](CITATION.cff) (GitHub's "Cite this repository" button) or:
 
 > data1493. *External Audit of OpenAI's Quasi-Riemann Hypothesis Manuscript (Re(s) > 7/8): layer reconstruction, loss table and residual-risk notes.* October 2026. https://github.com/data1493/quasi-rh-audit
 
@@ -72,7 +105,7 @@ Cite the OpenAI preprint and Lean formalization above as the primary objects. To
   year         = {2026},
   month        = oct,
   howpublished = {https://github.com/data1493/quasi-rh-audit},
-  note         = {External audit of the existing manuscript; not an independent re-proof of the analytic estimates}
+  note         = {External audit of the existing manuscript (openai/math commit adc7f12); not an independent re-proof of the analytic estimates}
 }
 ```
 
@@ -80,6 +113,6 @@ Cite the OpenAI preprint and Lean formalization above as the primary objects. To
 
 All text in this repository is licensed under [CC BY 4.0](LICENSE). This repository contains no code or Lean of its own. The OpenAI preprint and Lean formalization are separate works under their own license (openai/math is Apache-2.0) and are not redistributed here.
 
-## Original downloads
+## Working drafts
 
-`original-downloads/` holds the 19 source markdown files exactly as they were produced, before the light cleanup and wording softening in `audit/`. The `audit/` versions are the ones to cite. A PDF of the master audit, loss table and residual-risk notes is in `pdf/`.
+[`working-drafts/`](working-drafts/) holds the 19 raw markdown files as the workflow produced them, each with a banner. They are unreviewed and some wording overstates what was verified; the `audit/` versions are the citable record, and [CHANGELOG_wording.md](audit/CHANGELOG_wording.md) lists every change.
