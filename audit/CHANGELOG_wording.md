@@ -180,3 +180,4 @@ The continuation criterion has been isolated as a pure logical implication:" →
 - Late-height closure absorbs the height factor into half the remainder.
 - Final claimed high-" → "- Using only $m=1/2400$ leaves an unused power $1/4800$ ($=1/1600-1/2400$), which absorbs fixed constants from internal tail choices.
 - Late-height closure absorbs the height factor and returns half o"
+- **18_expert_review_request.md**: "Computational checks confirm the row envelope $R(\delta)$ and the endpoint constant. The Lean formalization of the final theorems is machine" → "Numerical evaluation matches the row envelope $R(\delta)$ and the endpoint comparison $49/440640>1/10000$ (the identity behind it was not re-derived). OpenAI reports the final theorems machine-checked in Lean; a third-party kernel replay is reported for the zeta statement, and the auditors built no Lean themselves."
