@@ -1,0 +1,3 @@
+pdf/src/*.aux
+pdf/src/*.log
+pdf/src/*.out

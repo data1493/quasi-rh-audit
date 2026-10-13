@@ -1,0 +1,230 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}\renewcommand{\ttdefault}{lmtt}
+\usepackage{microtype,amsmath,amssymb,booktabs,tabularx,array,enumitem,xcolor,fancyhdr,titlesec}
+\usepackage[most]{tcolorbox}
+\usepackage{caption,float}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\definecolor{acc}{HTML}{1F3A5F}\definecolor{boxbg}{HTML}{F4F6F9}\definecolor{plain}{HTML}{FFF8E6}
+\renewcommand{\arraystretch}{1.35}
+\setlength{\parskip}{0.45em}\setlength{\parindent}{0pt}
+\titleformat{\section}{\large\bfseries\color{acc}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyhead[R]{\small\itshape External Audit of the Quasi-Riemann Hypothesis Manuscript}
+\fancyfoot[C]{\small\thepage}
+\fancypagestyle{first}{\fancyhf{}\fancyfoot[C]{\small\thepage}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\repo}{\href{https://github.com/data1493/quasi-rh-audit}{\texttt{github.com/data1493/quasi-rh-audit}}}
+\newcommand{\af}[1]{\href{https://github.com/data1493/quasi-rh-audit/blob/main/audit/#1}{\texttt{\detokenize{#1}}}}
+\begin{document}
+\thispagestyle{first}
+\begin{center}
+{\small\scshape Audit report \quad$\cdot$\quad Version of 13 October 2026}\\[1.4em]
+{\LARGE\bfseries An External Audit of OpenAI's\\[0.3em] Quasi-Riemann Hypothesis Manuscript}\\[0.7em]
+{\large Zero-Free Half-Plane $\operatorname{Re}(s) > 7/8$}\\[0.6em]
+{\normalsize\itshape Master audit, loss table and residual-risk notes}\\[1.3em]
+{\large data1493}\\[0.2em]
+{\small AI-assisted, multi-agent audit \quad$\cdot$\quad \repo}
+\end{center}
+\vspace{0.6em}
+\begin{tcolorbox}[colback=boxbg,colframe=acc,boxrule=0.6pt,arc=2pt,left=10pt,right=10pt,top=8pt,bottom=8pt,title=\textbf{Abstract},fonttitle=\small,colbacktitle=acc]
+This is an external audit of the existing manuscript, not an independent re-proof of the analytic estimates. Primary objects: OpenAI, \emph{The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\operatorname{Re}(s)>7/8$} (preprint, 30 Sep 2026)~\cite{openai} and its Lean formalization, \texttt{github.com/openai/math}, commit \texttt{adc7f12}~\cite{lean}. Residual risk: the margins are small, and ruling out an unlisted intermediate loss larger than the reserved budgets requires a specialist reading of the original manuscript. Source and issue tracker: \repo.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white,colframe=acc!60,boxrule=0.5pt,arc=2pt,left=10pt,right=10pt,top=6pt,bottom=6pt,title=\textbf{At a glance},fonttitle=\small,colbacktitle=acc!60]
+\renewcommand{\arraystretch}{1.55}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\small}p{2.6cm}Y@{}}
+Date & 2026-10-13\\
+Audited source & OpenAI preprint (30 Sep 2026) and Lean formalization in \texttt{openai/math}, commit \texttt{adc7f12}; audited files byte-identical through \texttt{1581d4c}\\
+Scope & Audit of the existing paper and its own exponent accounting. Not a re-proof. The Oct.~5 ``alternate 11/12'' preprint is not covered.\\
+Method & Layer-by-layer reconstruction and stress-test using an AI-assisted multi-agent workflow (SuperGrok Heavy), led by data1493, reading the public TeX source and Lean formalization.\\
+Lean & A third-party Lean kernel replay (davegoldblatt) is reported for the zeta statement~\cite{replay}; we built no Lean ourselves.\\
+Status & No human specialist has yet reviewed these findings.\\
+\end{tabularx}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=plain,colframe=orange!60!black,boxrule=0.5pt,arc=2pt,left=10pt,right=10pt,top=6pt,bottom=6pt,title=\textbf{Summary for non-specialists},fonttitle=\small,colbacktitle=orange!60!black]
+OpenAI's paper claims that the Riemann zeta function has no zeros to the right of the line $\operatorname{Re}(s)=7/8$. We did not try to prove that again. Instead we checked the paper's own bookkeeping: at each step the proof ``spends'' a little of a small safety margin, and we checked that the margin is still positive after every loss the paper lists. It is: $1/4800$ in Stage~1, and $49/440640 > 1/10000$ at the Stage~2 endpoint. The catch is that these margins are small. If some intermediate step hides a loss the paper did not list, the margin could be used up, and only a specialist reading can rule that out. That is the review we are asking for.
+\end{tcolorbox}
+
+\section{Claims (precise scope)}
+\begin{enumerate}[leftmargin=1.6em,itemsep=0.3em]
+\item The logical architecture of the proof is coherent at every examined layer.
+\item The paper's own exponent ledgers for the modest positive margins (Stage 1 $1/4800$, Stage 2 endpoint $49/440640$) close with a positive remainder under the losses they explicitly charge.
+\item The Lean formalization of the final theorems aligns with the claimed statements; the final theorems are machine-checked, and an independent third-party kernel replay has been reported (see Part 9).
+\item No structural gap or disproof has been identified.
+\end{enumerate}
+\textbf{What this is not.} A complete independent proof of the analytic estimates. The residual risk is quantitative and localized to the possibility of an unlisted loss in an intermediate lemma.
+
+\section{Architecture (Parts 1--9)}
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}c>{\raggedright\arraybackslash}p{3.9cm}Y@{}}
+\toprule
+\textbf{Part} & \textbf{Layer} & \textbf{Finding}\\\midrule
+1 & Continuation criterion & Dual representations produce contradiction if zero lies too far right. No structural gap found at this layer.\\
+2 & Cubic-theta reflection & Exact under stated conditions; retains zero-on-nonunit restrictions.\\
+3 & Poisson \& principal signal & Principal $1/L$ Mellin signal cleanly isolated.\\
+4 & Large sieve \& row energy & Specialized sextic sieve + envelope $R(\delta)$ supply the positive margins.\\
+5 & Zero detector \& moments & Saturation forces inverse witness dominant; feeds the envelope.\\
+6 & Stage 1 assembly (11/12) & Balanced scales, $C(s)=s-2/3$, margin $1/4800$ under stated accounting.\\
+7 & Stage 2 refinement (7/8) & Compensation + asymmetric scales, endpoint positive.\\
+8 & Uniformity \& transfer & Margins independent of target; quadratic factorization transfers to Dirichlet $L$-functions.\\
+9 & Lean alignment & Final theorems formalized and kernel-checked; third-party replay reported.\\
+\bottomrule
+\end{tabularx}\end{center}
+
+\section{Specialist quantitative audit}
+\subsection*{Stage 1 high-side saving}
+\begin{itemize}[leftmargin=1.4em,itemsep=0.15em]
+\item Reserved: $m_0=1/1200$, $\epsilon_*=10^{-6}$, $m=1/2400$.
+\item Central losses: $46\epsilon_*<1/4800$.
+\item Principal and small-row losses each $<m_0/4$.
+\item After fixed scalar and late-height closure: claimed remainder $1/4800$.
+\item Status: table closes with positive remainder under charged losses.
+\end{itemize}
+\subsection*{Stage 2 endpoint certificate}
+\begin{itemize}[leftmargin=1.4em,itemsep=0.15em]
+\item Algebraic identity yields $-E_*\ge 49/440640>1/10000$.
+\item Additional losses charged to reserved fraction of high-side margin or arbitrarily small $\epsilon_{\rm total}$.
+\item Status: remainder positive for every $\Delta=\beta_*-7/8>0$.
+\end{itemize}
+\subsection*{Computational confirmation}
+\begin{itemize}[leftmargin=1.4em,itemsep=0.15em]
+\item Row envelope $R(\delta)=\min\{1,\max(1-\delta/2,4/3-\delta)\}$ evaluated; strict saving for $\delta>1/3$.
+\item Endpoint constant $49/440640\approx0.0001112>1/10000$ checked arithmetically (the algebraic identity behind it was not re-derived).
+\end{itemize}
+
+\section{Logical hinge (prose outline)}
+\emph{No Lean skeleton was built for this audit; this is a prose outline of how the formal statements line up with the hinge.} The continuation criterion has been isolated as a pure logical implication: dual bounds with uniform positive powers imply holomorphic continuation of $1/L$ past the supposed rightmost zero. The concrete margins appear as explicit constants. The analytic estimates that discharge the implication remain in the prose.
+
+\clearpage
+\section{Specialist loss table}
+\emph{Stage 1 (11/12) and Stage 2 (7/8) endpoint certificates.} Self-contained extraction of every charged loss that feeds the final positive margins, with the reserved budgets they are charged against.
+
+\subsection{Stage 1 --- high-side saving $1/4800$}
+Source: Proposition on balanced-high estimate and Lemma on late-height-closure.
+
+\begin{table}[H]\centering\small
+\caption*{\textbf{Table 1.} Reserved parameters (Stage 1)}
+\begin{tabular}{@{}lll@{}}\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Role}\\\midrule
+$m_0$ & $1/1200$ & Minimum error-free saving on every major contribution\\
+$\epsilon_*$ & $10^{-6}$ & Unit loss charged to each listed class\\
+$m$ & $1/2400$ & Saving used after preliminary losses\\
+$\omega$ & $\Delta_1/2$ & Low-bound room\\\bottomrule
+\end{tabular}\end{table}
+
+\begin{table}[H]\centering\small
+\caption*{\textbf{Table 2.} Charged losses (Stage 1). Notes [1]--[6] below.}
+\begin{tabular}{@{}llll@{}}\toprule
+\textbf{Loss class} & \textbf{Coefficient} & \textbf{Charged} & \textbf{Budget}\\\midrule
+Central$^{[1]}$ & $13\epsilon_*+2(15\epsilon_*)+3\epsilon_*$ & $46\epsilon_*$ & $<m_0/4=1/4800$\\
+Principal residues$^{[2]}$ & $\le(3/2+1)\epsilon_*$, $2\epsilon_*$ & each $<m_0/4$ & $m_0/4$\\
+Small-row & $\le 2\epsilon_*$ & $<m_0/4$ & $m_0/4$\\
+Large-row & requested $\epsilon_*$ & absorbed & reserved\\
+Height factor$^{[3]}$ & late choice of $\tau$ & absorbed$^{[4]}$ & late-height closure\\
+Contour tails$^{[5]}$ & increase $N$ after target & $\ll$ any power$^{[6]}$ & external order\\\bottomrule
+\end{tabular}\end{table}
+
+\begin{enumerate}[label={[\arabic*]},leftmargin=2.2em,itemsep=0.1em,font=\small]\small
+\item Central: row count, numerator, local correction, reciprocal, multiplicity, physical dyads.
+\item Principal residues: two terms.
+\item Height factor: $(1+T_1)^{A\eta}$.
+\item Absorbed into half the remaining margin.
+\item Contour tails: $O(Z^{B\eta}T_1^{-N})$.
+\item Smaller than any positive power.
+\end{enumerate}
+
+\textbf{Accounting.}
+\begin{itemize}[leftmargin=1.4em,itemsep=0.2em]
+\item The listed charges are tiny in absolute terms (central $46\epsilon_*$, principal $\le2.5\epsilon_*$ and $2\epsilon_*$, small-row $\le2\epsilon_*$; about $5.3\times10^{-5}$ in total, against $m_0/4\approx2.08\times10^{-4}$). After all listed losses and division by the fixed scalar $c_S$, the paper retains at least $3m_0/4=1/1600$ before the height factor.
+\item Using only $m=1/2400$ leaves an unused power $1/4800$ ($=1/1600-1/2400$), which absorbs fixed constants from internal tail choices.
+\item Late-height closure absorbs the height factor and returns half of $m$.
+\item Final claimed high-side saving: $m/2=1/4800$ (paper, end of proof of the balanced-high estimate). The two appearances of $1/4800$ are different quantities that happen to be equal.
+\end{itemize}
+\textbf{Status.} Every listed loss is strictly smaller than its reserved fraction under the paper's accounting. The table closes with a positive remainder.
+
+\subsection{Stage 2 --- endpoint certificate $49/440640$}
+Source: Lemma on balanced-endpoint (or equivalent high-bin endpoint calculation).
+
+\textbf{Certificate derivation (extracted).} The high exponent at the endpoint satisfies an identity of the form
+\[10368\,\mathcal{J}(-E_*) = (\text{non-negative quadratic form in } \delta, y).\]
+The leading constant term is 49. Bounding the remaining factors ($\mathcal{J}\le5/2$, $v\le17(3+5y)$) produces
+\[-E_*\ \ge\ \frac{49}{440640}\ >\ \frac{1}{10000}.\]
+The inequality holds uniformly for $1/50<\delta\le5/6$.
+
+\begin{table}[H]\centering\small
+\caption*{\textbf{Table 3.} Charged losses against the Stage 2 certificate. Notes [7]--[10] below.}
+\begin{tabular}{@{}lll@{}}\toprule
+\textbf{Loss class} & \textbf{Treatment} & \textbf{Budget}\\\midrule
+Amplitude bins$^{[7]}$ & absorbed into $O(\epsilon)$ & reserved fraction$^{[8]}$\\
+Capacity reduction ($\nu_0$) & charged $2q\nu_0+\delta\max w_i$ & $\Delta/4$ or equivalent\\
+Height factor & late $\tau$ as in Stage 1 & half high margin\\
+Contour tails & external order $N$ & $\ll$ any power$^{[9]}$\\
+Compensation$^{[10]}$ & absorbed into same $\epsilon_{\rm total}$ & target-independent coeff.\\\bottomrule
+\end{tabular}\end{table}
+\begin{enumerate}[label={[\arabic*]},start=7,leftmargin=2.2em,itemsep=0.1em,font=\small]\small
+\item Amplitude bin width $\vartheta$, witness subdivisions.
+\item Reserved fraction of high margin.
+\item Smaller than any positive power.
+\item Compensation and asymmetric dyadics; budget is a target-independent coefficient.
+\end{enumerate}
+
+\textbf{Accounting.}
+\begin{itemize}[leftmargin=1.4em,itemsep=0.2em]
+\item The constant term alone already exceeds $1/10000$.
+\item All additional losses are charged to a reserved fraction of the high-side margin (proportional to $\Delta=\beta_*-7/8$) or to an arbitrarily small $\epsilon_{\rm total}$.
+\item The certificate remains positive for every $\Delta>0$.
+\end{itemize}
+\textbf{Status.} The endpoint inequality is negative by a fixed positive amount plus a term proportional to $\Delta$. Under the paper's accounting the remainder stays positive.
+
+\subsection{Overall specialist conclusion}
+Both certificates close with a positive remainder under the losses the paper explicitly charges. The Stage 1 table accounts for every listed $\epsilon_*$ class and leaves $1/4800$. The Stage 2 certificate supplies a fixed positive constant larger than $1/10000$ that survives the same style of reserved-budget accounting. No listed loss exceeds its budget in the extracted text. The quantitative hinge survives this level of extraction.
+
+\textbf{Remaining limitation.} The table uses the paper's own charged amounts. Full certification still requires confirming that no intermediate lemma contains an additional unlisted loss of larger size. Within the extracted accounting, the margins hold.
+
+\section{Residual risk}
+The margins are small. Within the extracted text, they survive every loss the paper explicitly charges and that the computational constants match. The residual risk is the existence of an unlisted intermediate loss larger than the reserved budget. Full certification requires specialist verification of every lemma that feeds the ledger, or formalization of those steps.
+
+\subsection*{Where the risk sits}
+\emph{Editorial index compiled for this repository. Every statement below is taken from the audit files linked; nothing here adds a new finding.}
+
+The margins are small: a Stage 1 high-side saving of $1/4800$ and a Stage 2 endpoint constant $49/440640\approx0.0001112>1/10000$. Within the extracted text, these survive every loss the paper explicitly charges and that the computational constants match (00, 11, 17). The residual risk is the existence of an unlisted intermediate loss larger than the reserved budget. Confirming that none exists requires a specialist reading of every lemma that feeds the ledger, or formalization of those steps.
+
+\subsection*{Item by item}
+\begin{description}[style=nextline,leftmargin=1.4em,itemsep=0.5em,font=\normalfont\bfseries]
+\item[Stage 1 central loss, $46\epsilon_*<m_0/4$ \normalfont\small(file 12)] Additional loss classes in the full central-contribution equation not included in the 13 or the two 15s.
+\item[Late-height closure \normalfont\small(file 13)] An estimate producing $A\eta$ that itself depends on a height not yet closed.
+\item[Specialized sextic large sieve, $(KD)^{2/3}$ \normalfont\small(files 14, 04)] An extra factor in the full write-up not absorbed into $\epsilon$; an error in the mod-6 recursion would degrade $R(\delta)$.
+\item[Zero-detector saturation \normalfont\small(files 15, 05)] Product lower bound weaker than claimed.
+\item[Stage 2 compensation identities \normalfont\small(files 16, 07)] An uncancelled, target-dependent main term in an intermediate expansion.
+\item[Uniformity in the conductor \normalfont\small(files 08, 01)] A slowly growing conductor factor hidden inside an $\epsilon$.
+\item[Lean translation fidelity \normalfont\small(file 09)] Lean certifies the final theorems, not every intermediate prose estimate.
+\end{description}
+
+\subsection*{What would settle it}
+A short specialist note either confirming that the listed losses are fully accounted for under the paper's methods, or naming a specific lemma and loss that exceeds the reserved budget. See 18.
+
+\section{Conclusion}
+The manuscript survives structural scrutiny, Lean alignment, and specialist audit of its own exponent accounting. No disproof has been found. The quantitative hinge is localized and, under the stated accounting, closes with a positive remainder. The paper's own accounting is internally consistent under its methods; the result has not been independently re-proved from first principles.
+
+\section*{Artifacts}
+\begin{itemize}[leftmargin=1.4em,itemsep=0.1em]
+\item \af{01_continuation_criterion.md} -- \af{09_lean_alignment.md}
+\item \af{10_specialist_margins.md}
+\item \af{11_loss_table.md}
+\item \af{17_computational_check.md}
+\item \af{19_residual_risk_notes.md}
+\item This document; source and issue tracker at \repo
+\end{itemize}
+
+\begin{thebibliography}{9}
+\bibitem{openai} OpenAI, \emph{The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\operatorname{Re}(s)>7/8$}, preprint, 30 September 2026. Primary source.
+\bibitem{lean} OpenAI, Lean formalization, \href{https://github.com/openai/math}{\texttt{github.com/openai/math}}, commit \texttt{adc7f12} (audited files byte-identical through \texttt{1581d4c}). Primary source.
+\bibitem{replay} davegoldblatt, third-party Lean kernel replay of the zeta statement (reported).
+\bibitem{repo} data1493, \emph{External audit of OpenAI's quasi-Riemann hypothesis manuscript}, \repo, CC BY 4.0.
+\end{thebibliography}
+\end{document}
