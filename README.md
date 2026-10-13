@@ -63,11 +63,11 @@ The audit was produced with a multi-agent workflow (SuperGrok Heavy) reading the
 
 Cite the OpenAI preprint and Lean formalization above as the primary objects. To cite this audit:
 
-> Jordan [SURNAME TODO]. *External Audit of OpenAI's Quasi-Riemann Hypothesis Manuscript (Re(s) > 7/8): layer reconstruction, loss table and residual-risk notes.* October 2026. [REPO URL TODO]
+> data1493. *External Audit of OpenAI's Quasi-Riemann Hypothesis Manuscript (Re(s) > 7/8): layer reconstruction, loss table and residual-risk notes.* October 2026. [REPO URL TODO]
 
 ```bibtex
 @misc{quasi_rh_external_audit_2026,
-  author       = {Jordan [SURNAME TODO]},
+  author       = {data1493},
   title        = {External Audit of OpenAI's Quasi-Riemann Hypothesis Manuscript (Re(s) > 7/8)},
   year         = {2026},
   month        = oct,
