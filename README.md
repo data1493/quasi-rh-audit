@@ -6,7 +6,7 @@
 
 The structure holds: the dual-representation argument is coherent at every examined layer (continuation criterion, cubic-theta reflection, Poisson isolation, sextic large sieve, zero detector, Stage 1 and Stage 2 assembly, uniformity and Hecke-to-Dirichlet transfer). The paper's own exponent ledgers close with a positive remainder under the stated accounting: a Stage 1 high-side saving of $1/4800$ and a Stage 2 endpoint constant $49/440640 > 1/10000$. The Lean formalization of the final theorems is machine-checked, and a third-party kernel replay is reported. The residual risk is unlisted intermediate losses: the margins are small, and confirming that no intermediate lemma hides an unlisted loss larger than the reserved budgets requires a specialist reading of the original manuscript.
 
-**What this work is:** a layer-by-layer reconstruction, a specialist audit of the paper's own exponent accounting, computational confirmation of the critical constants, and a Lean skeleton of the logical hinge (described in [the master audit](audit/00_master_audit.md#lean-skeleton-of-the-hinge)). **What it is not:** a proof, or an independent verification of every estimate.
+**What this work is:** a layer-by-layer reconstruction, a specialist audit of the paper's own exponent accounting, computational confirmation of the critical constants, and an outline of how the Lean statements line up with the logical hinge (described in [the master audit](audit/00_master_audit.md#lean-skeleton-of-the-hinge)). **What it is not:** a proof, or an independent verification of every estimate.
 
 ## Primary objects (cite these first)
 
@@ -79,3 +79,7 @@ Cite the OpenAI preprint and Lean formalization above as the primary objects. To
 ## License
 
 All text in this repository is licensed under [CC BY 4.0](LICENSE). This repository contains no code or Lean of its own. The OpenAI preprint and Lean formalization are separate works under their own license (openai/math is Apache-2.0) and are not redistributed here.
+
+## Original downloads
+
+`original-downloads/` holds the 19 source markdown files exactly as they were produced, before the light cleanup and wording softening in `audit/`. The `audit/` versions are the ones to cite. A PDF of the master audit, loss table and residual-risk notes is in `pdf/`.
